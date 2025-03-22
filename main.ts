@@ -1,5 +1,5 @@
 input.onButtonPressed(Button.A, function () {
-    if (pins.analogReadPin(AnalogPin.P0) <= 200) {
+    if (pins.analogReadPin(AnalogPin.P0) <= 400) {
         basic.showLeds(`
             . . . . .
             . . . . .
@@ -19,7 +19,7 @@ input.onButtonPressed(Button.A, function () {
             `)
         basic.pause(1000)
         basic.clearScreen()
-    } else if (pins.analogReadPin(AnalogPin.P0) <= 600 && pins.analogReadPin(AnalogPin.P0) > 400) {
+    } else if (pins.analogReadPin(AnalogPin.P0) <= 0 && pins.analogReadPin(AnalogPin.P0) > 400) {
         basic.showLeds(`
             . . . . .
             . . . . .
@@ -29,7 +29,7 @@ input.onButtonPressed(Button.A, function () {
             `)
         basic.pause(1000)
         basic.clearScreen()
-    } else if (pins.analogReadPin(AnalogPin.P0) <= 800 && pins.analogReadPin(AnalogPin.P0) > 600) {
+    } else if (pins.analogReadPin(AnalogPin.P0) <= 700 && pins.analogReadPin(AnalogPin.P0) > 600) {
         basic.showLeds(`
             . . . . .
             # # # # #
@@ -39,7 +39,7 @@ input.onButtonPressed(Button.A, function () {
             `)
         basic.pause(1000)
         basic.clearScreen()
-    } else {
+    } else if (pins.analogReadPin(AnalogPin.P0) <= 1000 && pins.analogReadPin(AnalogPin.P0) > 800) {
         basic.showLeds(`
             # # # # #
             # # # # #
@@ -50,6 +50,9 @@ input.onButtonPressed(Button.A, function () {
         basic.pause(1000)
         basic.clearScreen()
     }
+})
+input.onButtonPressed(Button.B, function () {
+    basic.showNumber(pins.analogReadPin(AnalogPin.P0))
 })
 basic.forever(function () {
     if (pins.analogReadPin(AnalogPin.P0) < 200) {
